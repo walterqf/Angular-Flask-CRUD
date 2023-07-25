@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 # Prueba práctica de conocimientos técnicos
 
 Realizar un CRUD de productos que permita manejar n niveles de subcategorías.
@@ -71,5 +69,3 @@ How to install:
 ```
     
 =======
-
->>>>>>> merge_branch
