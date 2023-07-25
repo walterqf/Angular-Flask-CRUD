@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="d-flex justify-content-between">
+      <h4>Edit product</h4>
+      <a href="#" routerLink="/productos/index" class="btn btn-primaryt">Back</a>
+    </div>
+
+    <hr>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <script>
+        angular.module("app").constant("CSRF_TOKEN", '{{ csrf_token() }}');
+      </script>
+         <div class="form-group row">
+          <div class="col-md-6">
+            <label for="nivel">Referencia:</label>
+            <input
+              formControlName="nivel"
+              id="nivel"
+              type="text"
+              class="form-control">
+            <div *ngIf="f['referencia'].touched && f['nivel'].invalid" class="alert alert-danger">
+              <div *ngIf="hasError('nivel', 'required')">*Referencia is required.</div>
+              <div *ngIf="hasError('nivel', 'pattern')">*The referencia acept numbers and chars.</div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="referencia">Descripcion:</label>
+            <input
+              formControlName="referencia"
+              id="referencia"
+              type="text"
+              class="form-control">
+            <div *ngIf="f['referencia'].touched && f['referencia'].invalid" class="alert alert-danger">
+              <div *ngIf="hasError('referencia', 'required')">*Descripcion is required.</div>
+              <div *ngIf="hasError('referencia', 'pattern')">*The descripcion must be a valid email address.</div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="stock">Stock:</label>
+            <input
+              formControlName="stock"
+              id="stock"
+              type="text"
+              class="form-control">
+            <div *ngIf="f['stock'].touched && f['stock'].invalid" class="alert alert-danger">
+              <div *ngIf="hasError('stock', 'required')">*Stock is required.</div>
+              <div *ngIf="hasError('stock', 'pattern')">*The stock must only contain numbers.</div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="parent_id">Id padre:</label>
+            <input
+              formControlName="parent_id"
+              id="parent_id" 
+              type="text"
+              class="form-control">
+            <div *ngIf="f['parent_id'].touched && f['parent_id'].invalid" class="alert alert-danger">
+              <div *ngIf="hasError('parent_id', 'required')">*Nivel is required.</div>
+              <div *ngIf="hasError('parent_id', 'pattern')">*The nivelmust be a valid ruta.</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Update</button>
+    </form>
+</div>

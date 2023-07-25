@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # Prueba práctica de conocimientos técnicos
 
@@ -69,3 +70,6 @@ How to install:
   run ng serve
 ```
     
+=======
+
+>>>>>>> merge_branch
